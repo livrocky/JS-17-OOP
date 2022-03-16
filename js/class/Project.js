@@ -10,9 +10,15 @@ class Project {
     this.#done = false;
     this.#id = `proj_${++Project.proCount}`;
   }
+  finishProject() {
+    this.#done = true;
+  }
+  // geter
+  get done() {
+    return this.#done;
+  }
 }
 
-// id, done (lygus false), title, price
+// id, done (lygu false), title, price
 
-const pro1 = new Project("Headeris", 100);
-console.log("pro1===", pro1);
+// console.log('pro1 ===', pro1);
