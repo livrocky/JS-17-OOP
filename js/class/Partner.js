@@ -4,6 +4,12 @@ class Partner extends Person {
   constructor(name, surname, age) {
     super(name, surname, age);
   }
+  /**
+   *
+   * @param project instance of Project
+   * @returns
+   * prideda nauja projeka i #projects masyva
+   */
   addProject(project) {
     // patikrinti kad butu sukurtas pagal Project Klase
     if (!(project instanceof Project)) return console.log("bad object");
@@ -20,5 +26,8 @@ class Partner extends Person {
     console.log("doneProjects ===", doneProjects);
     const totalToPay = doneProjects.reduce((total, prObj) => total + prObj.price, 0);
     console.log("totalToPay ===", totalToPay);
+    // remove project that are done
+    this.#projects = this.#projects.filter((prObj) => prObj.done === false);
+    return totalToPay;
   }
 }
